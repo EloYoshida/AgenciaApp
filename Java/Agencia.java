@@ -13,6 +13,12 @@ public class Agencia{
       Projeto novoprojeto = new Projeto(cod_interno,titulo, instituicao, orcamento, duracao);
       projetos.add(novoprojeto);
    }
+   
+
+   public void inserirProjeto(Projeto projeto){
+   
+      projetos.add(projeto);
+   }
     
    public boolean removeProjeto(int cod_interno) {
       int posicao = buscar (cod_interno);

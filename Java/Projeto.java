@@ -5,6 +5,7 @@ public class Projeto{
    private String instituicao;
    private int orcamento;
    private String duracao;
+   private String avaliacao = "";
    
      
       public Projeto (int cod_interno,String titulo, String instituicao, int orcamento, String duracao){  
@@ -36,6 +37,9 @@ public class Projeto{
    public String getDuracao(){
       return  duracao;
       }
+      public String geAvaliacao(){
+      return  avaliacao;
+      }
    
    public void setCod_interno( int cod_interno){
       this.cod_interno = cod_interno;
@@ -55,5 +59,8 @@ public class Projeto{
    
    public void setDuracao(String duracao){
       this.duracao = duracao;
+   }
+   public void setAvaliacao(String avaliacao){
+      this.avaliacao = avaliacao;
    }
 }

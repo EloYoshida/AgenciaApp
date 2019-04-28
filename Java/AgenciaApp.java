@@ -56,16 +56,32 @@ public class AgenciaApp {
             for (Projeto projeto : listaProjetos ){
              JOptionPane.showMessageDialog(null, "Codigo projeto......: " + projeto.getCod_interno() + "\n" +
                                                  "Titulo projeto......: " + projeto.getTitulo() + "\n" +
+                                                 "Avaliacao  do Projeto......: " + projeto.geAvaliacao() + "\n" +
                                                  "Nome da Instituicao.: " + projeto.getInstituicao() + "\n" +
                                                  "Orcamento projeto...: " + projeto.getOrcamento() + "\n" +
                                                  "Duracao projeto.....: " + projeto.getDuracao() + "\n");
+                                                 
                                             
               
             }
          }
          else if(escolha ==3)
          {
-            
+            String cod_interno = JOptionPane.showInputDialog("Informe o codigo do projeto que deseja avaliar");
+            int codigointerno = Integer.parseInt(cod_interno);
+            Projeto projeto = agencia.buscarProjeto (codigointerno);
+            if (projeto == null ){
+               JOptionPane.showMessageDialog(null,"Projeto " + codigointerno + " nao encontrado" );
+   
+            }else {
+              String avaliacao = JOptionPane.showInputDialog("Informe a avaliacao do projeto.");
+              projeto.setAvaliacao (avaliacao);
+              agencia.removeProjeto (codigointerno);
+              agencia.inserirProjeto(projeto);
+  
+            } 
+
+
          }
          else if(escolha == 4){
             String cod_interno = JOptionPane.showInputDialog("Informe o codigo que deseja excluir.");
@@ -84,6 +100,7 @@ public class AgenciaApp {
             }else {
                JOptionPane.showMessageDialog(null, "Codigo projeto......: " + projeto.getCod_interno() + "\n" +
                                                  "Titulo projeto......: " + projeto.getTitulo() + "\n" +
+                                                 "Avaliacao  do Projeto......: " + projeto.geAvaliacao() + "\n" +
                                                  "Nome da Instituicao.: " + projeto.getInstituicao() + "\n" +
                                                  "Orcamento projeto...: " + projeto.getOrcamento() + "\n" +
                                                  "Duracao projeto.....: " + projeto.getDuracao() + "\n");
